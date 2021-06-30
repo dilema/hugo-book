@@ -163,6 +163,13 @@ disableKinds = ['taxonomy', 'taxonomyTerm']
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
   BookRepo = 'https://github.com/alex-shpak/hugo-book'
+  
+  # Specifies commit portion of the link to the page's last modified commit hash for 'doc' page
+  # type.
+  # Required if 'BookRepo' param is set.
+  # Value used to construct a URL consisting of BookRepo/BookCommitPath/<commit-hash>
+  # Github uses 'commit', Bitbucket uses 'commits'
+  BookCommitPath = 'commit'
 
   # Enable 'Edit this page' links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
@@ -254,6 +261,7 @@ There are few empty partials you can override in `layouts/partials/`
 | `assets/_custom.scss`    | Customise or override scss styles                                                     |
 | `assets/_variables.scss` | Override default SCSS variables                                                       |
 | `assets/_fonts.scss`     | Replace default font with custom fonts (e.g. local files or remote like google fonts) |
+| `assets/mermaid.json`    | Replace Mermaid initialization config                                                 |
 
 ### Plugins
 
@@ -272,6 +280,12 @@ There are a few hugo templates inserted in `<head>`
 
 - [Google Analytics](https://gohugo.io/templates/internal/#google-analytics)
 - [Open Graph](https://gohugo.io/templates/internal/#open-graph)
+
+To disable Open Graph inclusion you can create your own empty file `\layouts\_internal\opengraph.html`.
+In fact almost empty not quite empty because an empty file looks like absent for HUGO. For example:
+```
+<!-- -->
+```
 
 ## Shortcodes
 

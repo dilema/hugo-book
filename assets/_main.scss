@@ -125,6 +125,25 @@ ul.pagination {
   input.toggle:checked + label + ul {
     display: block;
   }
+
+  input.toggle + label::after {
+    content: "▸";
+  }
+
+  input.toggle:checked + label::after {
+    content: "▾";
+  }
+}
+
+// for RTL support
+body[dir="rtl"] .book-menu {
+  input.toggle + label::after {
+    content: "◂";
+  }
+
+  input.toggle:checked + label::after {
+    content: "▾";
+  }
 }
 
 .book-section-flat {
@@ -161,6 +180,11 @@ ul.pagination {
 
   label {
     line-height: 0;
+  }
+
+  img.book-icon {
+    height: 1.5em;
+    width: 1.5em;
   }
 }
 
@@ -218,6 +242,7 @@ ul.pagination {
 
   img {
     height: 1em;
+    width: 1em;
   }
 
   nav > ul > li:first-child {
@@ -231,6 +256,7 @@ ul.pagination {
 
   img {
     height: 1em;
+    width: 1em;
     margin-inline-end: $padding-8;
   }
 }
@@ -366,8 +392,8 @@ ul.pagination {
     }
   }
 
-  //for RTL support
-  body[dir="rtl"] #menu-control:checked + main {
+  // for RTL support
+  body[dir="rtl"] #menu-control:checked ~ main {
     .book-menu .book-menu-content {
       transform: translateX(-$menu-width);
     }
